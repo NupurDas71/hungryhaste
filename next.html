@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>food app</title>
+    <link rel="stylesheet" href="style.css">
+    <link href=" https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css " rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href=" https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css "  rel="stylesheet">
+
+</head>
+<body>
+   <!-- NAVBAR -->
+   <nav class="bg-yellow-400 fixed w-full shadow-md  flex items-center justify-between px-4 z-50 h-20 py-4">
+        
+                    <ul class="flex  justify-between w-full  gap-3">
+                    <div class="flex items-center  w-20 h-10 ">
+
+                    <a href="next.html" class="flex items-center justify-center">
+                        <img src="Screenshot 2025-02-20 105303.png" class=" flex w-20">
+                    </a>
+                       
+                </div>
+                <div class="flex items-center  w-15 h-10 ">
+                    <li><a href="next.html" class=" flex font-bold text-lg  transition-colors duration-300 hover:text-red-500">Home</a> </li></div>
+                    <div class="flex items-center  w-15 h-10 ">
+                        <li><a href="#fooddiv" class=" flex font-bold text-lg  transition-colors duration-300 hover:text-red-500">Food</a></li></div>
+    
+        
+                    <!-- Search Bar -->
+                   <!-- Search Bar -->
+                   <div class="flex items-center bg-white w-50 h-10 rounded-lg shadow-sm border border-gray-300">
+                    <input type="text" id="searchInput" class="w-full h-full p-2 text-sm outline-none bg-transparent placeholder-gray-500 focus:border-pink-500 focus:ring-4 focus:ring-pink-400"
+                        placeholder="Search Food">
+                    <button class="p-2 rounded-full">
+                        <img src="https://cdn1.iconfinder.com/data/icons/jumpicon-basic-ui-glyph-1/32/-_Magnifier-Search-Zoom--1024.png"
+                            class="h-10 w-10 opacity-70 hover:opacity-100">
+                    </button>
+                </div>
+                <script>
+                    document.getElementById("searchInput").addEventListener("input", function() {
+                        let searchValue = this.value.toLowerCase();
+                        let foodItems = document.querySelectorAll(".image-container");
+                    
+                        foodItems.forEach(item => {
+                            let imgAlt = item.querySelector("img").alt.toLowerCase();
+                            if (imgAlt.includes(searchValue)) {
+                                item.style.display = "flex";  // Show matching items
+                            } else {
+                                item.style.display = "none";  // Hide non-matching items
+                            }
+                        });
+                    });
+                    </script>
+                    
+        
+                 
+                    <!-- Sign In -->
+                  
+        <li class="flex">
+            <button id="openModal" class="flex items-center bg-orange-500 text-black px-1 py-1 rounded-md text-base hover:bg-orange-600 transition duration-300">
+                <img src="https://cdn0.iconfinder.com/data/icons/ecommerce-50/48/icon0006_member-1024.png" class="h-6 w-8">
+                <span class=" ml-2 font-bold text-lg hidden md:inline-block hover:text-red-500 transition-colors duration-300">Sign in</span>
+            </button>
+        </li>
+        
+        <!-- Sign-In Modal -->
+        <!-- Sign-In Modal -->
+        <div id="signInModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden">
+            <div class="bg-white w-96 p-6 rounded-lg shadow-lg relative">
+                <!-- Close Button -->
+                <button id="closeSignIn" class="absolute top-2 right-3 text-pink-500 text-3xl hover:text-red-500 transition duration-300">&times;</button>
+        
+                <h2 class="text-2xl font-bold text-green-800 mb-4 text-center">Sign In</h2>
+                
+                <input type="email" id="email" class="w-full p-2 border border-gray-300 rounded mb-2 focus:border-pink-500 focus:ring focus:ring-pink-200 outline-none" placeholder="Enter email">
+                <input type="password" id="password" class="w-full p-2 border border-gray-300 rounded mb-4 focus:border-pink-500 focus:ring focus:ring-pink-200 outline-none" placeholder="Enter password">
+                
+                <button id="signInBtn" class="w-full bg-green-500 text-white p-2 rounded hover:bg-green-600 transition duration-300">Sign In</button>
+                
+                <p class="mt-3 text-sm text-center">Don't have an account? <a id="signUpLink" href="#" class="text-blue-500 hover:text-blue-700 transition">Sign Up</a></p>
+            </div>
+        </div>
+        
+        
+                    
+        
+                    <!-- Cart -->
+                    <li class="flex items-center">
+                        <a href="ser.html" class="flex items-center  ">
+                            <img src="https://cdn2.iconfinder.com/data/icons/actinia-basic-user-interface/24/archive-delete-1024.png" class="h-6 w-8">
+                            <span class="ml-1 font-bold text-lg  hidden md:inline transition-colors duration-300 hover:text-red-500">Cart</span>
+                        </a>
+                    </li>
+                </ul>
+        
+        </nav>
+               
+ 
+
+
+
+            
+
+          
+
+</nav>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const modal = document.getElementById("signInModal");
+    const openModal = document.getElementById("openModal");
+    const closeModal = document.getElementById("closeSignIn");
+    const signInBtn = document.getElementById("signInBtn");
+    const signUpLink = document.getElementById("signUpLink");
+
+    // Check if user is already signed in
+    const savedName = localStorage.getItem("userName");
+    if (savedName) {
+        updateAccountButton(savedName);
+    }
+
+    // Open modal
+    openModal.addEventListener("click", () => {
+        modal.classList.remove("hidden");
+    });
+
+    // Close modal when clicking outside
+    modal.addEventListener("click", (e) => {
+        if (e.target === modal) {
+            modal.classList.add("hidden");
+        }
+    });
+
+    // Close modal on "X" button
+    closeModal.addEventListener("click", () => {
+        modal.classList.add("hidden");
+    });
+
+    // Sign-in button (Save login status)
+    signInBtn.addEventListener("click", () => {
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+        const name = localStorage.getItem("userName"); // Get the name from signup
+
+        if (!email || !password) {
+            alert("Please enter both email and password.");
+            return;
+        }
+
+        // Save login status
+        localStorage.setItem("userSignedIn", "true");
+        modal.classList.add("hidden");
+
+        // Update the UI with the user's name
+        if (name) {
+            updateAccountButton(name);
+        }
+    });
+
+    // Sign-up process (Redirect)
+    signUpLink.addEventListener("click", (e) => {
+        e.preventDefault();
+        alert("Redirecting to Sign-Up Page...");
+        window.location.href = "signup.html";
+    });
+
+    function updateAccountButton(name) {
+        openModal.innerHTML = `<img src="https://cdn0.iconfinder.com/data/icons/ecommerce-50/48/icon0006_member-1024.png" class="h-6 w-6"> <span class="ml-2 font-bold text-lg hidden md:inline-block hover:text-white transition duration-300">${name}</span>`;
+    }
+});
+
+
+</script>
+
+    <header>
+        <nav id="secondnav">
+            <div id="div1">
+                <p class="font-bold text-lg">What's on your mind</p>
+                <div id="items" class="d-flex flex-row ">
+                    <div id="pureveg " class="image-container " data-name="pure veg" > <a href="purveg.html"><img src=" https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIfw2JYBVawTthFpdAMlwNd1kSzAU4Hmntpg&s" alt="pureveg" /><p>Pure Veg</p></a></div>
+                   
+                    <div id="biriyani" class="image-container"><a href="biriyani.html"> <img src=" https://www.cubesnjuliennes.com/wp-content/uploads/2020/07/Chicken-Biryani-Recipe.jpg" alt="biriyani" /><p> Biriyani</p></a></div>
+                    <div id="momo" class="image-container"><a href="momo.html"> <img src=" https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtjBkSjhWbv6scblOO47N_jXwtigwdizOVNw&s" alt="momo" /><p>Momo</p> </a></div>
+                    <div id="burgur" class="image-container"><a href="burger.html"> <img src=" https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyDcH_MxdsTsK6KMVon-Ybfa2WiT-R70ZjWw&s" alt="burgur"  /><p>Burger</p></a> </div>
+                    <div id="chinese" class="image-container"> <a href="chinese.html"><img src=" https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJdGa_gF6S2edZk1LwPNk380Q9V3-O2wEz8Q&s" alt="chinese" /><p>Chinese</p></a></div>
+
+                    <div id="ni" class="image-container"><a href="northindian.html"> <img src=" https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQy-CJUTjI5EqYIoj7-_8ImWCcCRfxLnUFqVg&s" alt="ni"  /><p>North Indian</p></a></div>
+                    <div id="rolls" class="image-container"><a href="roll.html"><img src=" https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlr0ST4xI-WCWr9eH6IogXXlZpJ-KJPxJfqA&s " alt="rolls" /><p>Roll</p></a></div>
+<div id="pizza" class="image-container"><a href="pizza.html"> <img src=" https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS87MI4qqBu4zRZwJ0hbEiN5-4WezFeBheuCAASOeTfSmGxuwx7LCjjemgDDmTxUMNfDzQ&usqp=CAU" alt="pizza"   /><p>Pizza</p></a></div>
+                    <div id="si" class="image-container"><a href="southindian.html"> <img src="  https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXhzMX0qPZZUOJfJTV5j_ybtuPVEyOolsPzqfCV09XK2uDa-auUF-5fOhAQNyFQPHPmwg&usqp=CAUU" alt="South Indian"   /><p>South Indian</p></a></div>
+                    <div id="pasta" class="image-container"><a href="pasta.html"><img src=" https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSs2paowiODEqEOJ082fLEWgrlBjvBlGd2GrQ&s " alt="pasta" /><p> Pasta</p></a> </div>
+                    <div id="khichdi" class="image-container"><a href="khichdi.html"> <img src=" https://holycowvegan.net/wp-content/uploads/2021/09/masala-khichdi.jpg " alt="khichdi" /><p>Khichdi</p></a></div>
+                    <div id="icecream" class="image-container"><a href="icecream.html"> <img src=" https://static.toiimg.com/photo/101136807.cms " alt="icecream" /><p>Ice-Cream</p></a></div>
+                  
+ <div id="cakes" class="image-container"><a href="cake.html"><img src=" https://j6e2i8c9.rocketcdn.me/wp-content/uploads/2021/05/Eggless-Black-forest-Pastry-recipe-1.jpg " alt="cakes" /><p>Cakes</p></a> </div>
+<div id="rasgulla" class="image-container"><a href="rasgulla.html" ><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRU6Q0AGtbgbqaD6kN2wpWV3Go2TBRSMXZX4g&s" alt="rasgulla" /><p>Rasgulla</p></a> </div>
+</div></div></nav>
+    </header>
+    <div id="full" class="flex justify-center items-center mt-2 mb-2 w-full ">
+        <img class="w-1/2" src="Business Geometric Template_page-0001.jpg" alt="Centered Image"/>
+    </div>
+    <hr>
+    <div id="fooddiv" class="w-full pl-2 pr-2 mt-5 mb-5 flex flex-wrap justify-center items-center">
+        <div class="food-item flex flex-col items-center">
+            <img src="https://img.freepik.com/premium-photo/close-up-steaming-hot-cup-coffee-with-heart-shaped-latte-art-design-top_935552-1520.jpg" 
+                alt="Iced Coffee" class="w-36 h-36 object-cover rounded-lg"/>
+            <p class="mt-2 text-center text-lg xl:text-xl font-bold"><b>Iced Coffee</b></p>
+            <div class="star-rating">
+                <span class="star " data-rating="5">&#9733;</span>
+                <span class="star" data-rating="4">&#9733;</span>
+                <span class="star" data-rating="3">&#9733;</span>
+                <span class="star" data-rating="2">&#9733;</span>
+                <span class="star" data-rating="1">&#9733;</span>
+            </div>
+            <p class="mt-1  text-center text-lg font-bold">₹80.0-₹180.0</p>
+            <button class="order-button bg-yellow-500 text-white py-2 px-4 rounded" onclick="toggleDetails()">Order Now</button>
+        </div>
+    
+    <!-- Overlay Section -->
+    <div class="hidden fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center w-full mx-auto" id="overlay">
+            <div class="bg-gradient-to-r from-pink-100 to-yellow-100 p-2 rounded-lg shadow-lg w-4/5 mt-1">
+                <div id="pic-writtendiv" class="flex flex-col lg:flex-row p-4 items-center">
+    
+                    <!-- Image Section -->
+                    <div id="picinside" class="flex flex-col lg:w-1/2 w-full items-center">
+                        <img src="https://img.freepik.com/premium-photo/close-up-steaming-hot-cup-coffee-with-heart-shaped-latte-art-design-top_935552-1520.jpg" alt="Iced Coffee" class="rounded-lg w-full lg:w-auto max-w-xs"/>
+    
+                        <div id="quantity" class="flex flex-row mt-3 space-x-4">
+                            <button type="button" onclick="updateQuantity(-1)" class=" bg-gray-200 p-2 w-8 text-lg items-center rounded-full" id="decrement">-</button>
+                            <p id="quantitycofee" class="text-lg">1</p>
+                            <button type="button" onclick="updateQuantity(1)" class="bg-gray-200 p-2 w-8 text-lg items-center rounded-full" id="increment">+</button>
+                        </div>
+                    </div>
+    
+                    <!-- Details Section -->
+                    <div id="writteninside" class="flex flex-col p-4 lg:w-1/2 w-full rounded-lg ">
+                        <div class="flex items-center justify-between">
+                            <h2 class="text-xl font-bold text-gray-800">☕ Iced Coffee</h2>
+                            <button class="bg-yellow-500 text-white px-3 py-1 rounded-full" onclick="closeOverlay()">X</button>
+                         </div>
+                    
+                        <p class="text-gray-600 text-sm lg:text-lg mt-2">"❄️☕ Chilled to perfection, brewed for bliss! One sip of our iced coffee, and you're in a world of smooth, refreshing delight! 🌿✨"</p>
+                        
+                            
+                        <!-- Coffee Type Selection -->
+                        <form class="mt-3 flex flex-row gap-2">
+                            <p class="text-gray-700 font-bold">Coffee Type:</p>
+                            <label class="flex items-center space-x-2">
+                                <input type="radio" name="coffee" value="Americano" onclick="updateTotalPrice()" checked>
+                                <span class="text-pink-900">Americano</span>
+                            </label>
+                            <label class="flex items-center space-x-2">
+                                <input type="radio" name="coffee" value="Cappuccino" onclick="updateTotalPrice()">
+                                <span class="text-pink-900">Cappuccino</span>
+                            </label>
+                            <label class="flex items-center space-x-2">
+                                <input type="radio" name="coffee" value="Espresso" onclick="updateTotalPrice()">
+                                <span class="text-pink-900">Espresso</span>
+                            </label>
+                        </form>
+    
+                        <!-- Extra Items -->
+                        <form class="mt-2 flex flex-row gap-2">
+                            <p class="text-gray-700 font-bold">Extra Items?</p>
+                            <label class="flex items-center space-x-2">
+                                <input type="radio" name="Extraitem" value="2.06" onclick="updateTotalPrice()">
+                                <span class="text-green-900">Extra Milk + ₹2.06</span>
+                            </label>
+                            <label class="flex items-center space-x-2">
+                                <input type="radio" name="Extraitem" value="3.00" onclick="updateTotalPrice()">
+                                <span class="text-green-900">Extra Sugar + ₹3.00</span>
+                            </label>
+                        </form>
+    
+                        <p class="text-gray-700 mt-2">Special Instructions?</p>
+                        <input type="text" class="border border-gray-300 p-2 w-full" placeholder="Add Instructions..">
+    
+                        <!-- Total Price -->
+                        <div class="flex justify-between items-center mt-2">
+                            <p class="text-xl font-semibold">Total Price:</p>
+                            <p id="totalPrice" class="text-xl font-semibold">₹80.00</p>
+                        </div>
+    
+                        <!-- Buttons -->
+                        <div class="flex flex-row gap-3 mt-2 mb-2">
+                            <button class="bg-yellow-500 p-2 text-white rounded-lg" onclick="  addToCart('Iced Coffee',80)">Add to Cart</button>
+                            <button class="bg-green-300 p-2 rounded-lg"><a href="next.html">Buy More</a></button>
+                            <button onclick="proceedToCheckoutcoffee()" class="bg-green-300 p-2 rounded-lg">Proceed to Pay</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+
+
+
+
+
+
+
+
+
+<!-- Burger Section -->
+<div class="food-item mx-2">
+    <img src="https://cdn.dotpe.in/longtail/store-items/5538026/Pjz5s5b1.jpeg" alt="Double Classic Burger" class="object-cover rounded-lg"/>
+    <p class="mt-2 text-center text-lg font-bold"><b>Double Classic Burger</b></p>
+    <div class="star-rating">
+        <span class="star" data-rating="5">&#9733;</span>
+        <span class="star" data-rating="4">&#9733;</span>
+        <span class="star" data-rating="3">&#9733;</span>
+        <span class="star" data-rating="2">&#9733;</span>
+        <span class="star" data-rating="1">&#9733;</span>
+    </div>
+    <p class="mt-1 text-center text-lg font-bold">₹100.0-₹150.0</p>
+    <button class="order-button bg-yellow-500 text-white py-2 px-4 rounded" onclick="toggleDetailsBurger()">Order Now</button>
+</div>
+
+<!-- Burger Overlay Section -->
+<div class="hidden fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center w-full mx-auto" id="overlayBurger">
+    <div class="bg-gradient-to-r from-pink-100 to-yellow-100 p-2 rounded-lg shadow-lg w-4/5 mt-1">
+        <div class="flex flex-col lg:flex-row p-4 items-center">
+            <!-- Image Section -->
+            <div id="picinside" class="flex flex-col lg:w-1/2 w-full items-center">
+
+                    <img src="https://cdn.dotpe.in/longtail/store-items/5538026/Pjz5s5b1.jpeg"  alt="Burger" class="rounded-lg w-full lg:w-auto max-w-xs "/>
+                               <div id="quantity" class="flex flex-row mt-3 space-x-4">
+                    <button type="button" onclick="updateQuantityBurger(-1)" class="bg-gray-200 p-2 w-8 text-lg items-center rounded-full">-</button>
+                    <p id="quantityBurger" class="text-lg">1</p>
+                    <button type="button" onclick="updateQuantityBurger(1)" class="bg-gray-200 p-2 w-8 text-lg items-center rounded-full">+</button>
+                </div>
+            </div>
+
+            <!-- Details Section -->
+            <div class="flex flex-col p-4 lg:w-1/2 w-full rounded-lg">
+                <div class="flex items-center justify-between">
+                    <h2 class="text-xl font-bold text-gray-800">🍔 Double Classic Burger</h2>
+                    <button class="bg-yellow-500 text-white px-3 py-1 rounded-full" onclick="closeOverlayBurger()">X</button>
+                </div>
+                
+                <p class="text-gray-600 text-sm lg:text-lg mt-2">
+                    "🔥 Double the layers, double the flavor! Our **Double Classic Burger** brings you juicy, flame-grilled perfection with a spicy kick 🌶️. Get ready to taste the heat in every bite! 🍔🔥"
+                </p>
+                
+                <!-- Extra Items -->
+                <form class="mt-2 flex flex-row gap-2" onchange="calculateTotalBurger()">
+                    <p class="text-gray-700 font-bold">Extra Items?</p>
+                    <label class="flex items-center space-x-2">
+                        <input type="radio" name="Extraitem" value="99">
+                        <span class="text-green-900">Crispy Chili Fries +₹99</span>
+                    </label>
+                    <label class="flex items-center space-x-2">
+                        <input type="radio" name="Extraitem" value="49">
+                        <span class="text-green-900">Chilled Pepsi + ₹49.00</span>
+                    </label>
+                    <label class="flex items-center space-x-2">
+                        <input type="radio" name="Extraitem" value="49">
+                        <span class="text-green-900">Virgin Mojito + ₹49.00</span>
+                    </label>
+                </form>
+
+                <p class="text-gray-700 mt-2">Special Instructions?</p>
+                <input type="text" class="border border-gray-300 p-2 w-full" placeholder="Add Instructions..">
+
+                <!-- Total Price -->
+                <div class="flex justify-between items-center mt-2">
+                    <p class="text-xl font-semibold">Total Price:</p>
+                    <p id="totalPriceBurger" class="text-xl font-semibold">₹150.00</p>
+                </div>
+
+                <!-- Buttons -->
+                <div class="flex flex-row gap-3 mt-2 mb-2">
+                    <button class="flex bg-yellow-500 p-2 text-white rounded-lg" onclick=" addToCart('Double Classic Burger',150)">Add to Cart</button>
+                    <button class="flex bg-green-300 p-2 rounded-lg"><a href="next.html">Buy More</a></button>
+                    <button onclick="proceedToCheckoutBurger()" class="flex bg-green-300 p-2 rounded-lg">Proceed to Pay</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+        <div class="food-item mx-2">
+            <img src="https://imgmedia.lbb.in/media/2019/07/5d242ad8e93a896e5542da0d_1562651352251.jpg" 
+                 alt="Pizza Alto Alt" class="object-cover rounded-lg"/>
+            <p class="mt-2 text-center text-lg font-bold"><b>Pizza Alto Alt</b></p>
+            <div class="star-rating">
+                <span class="star" data-rating="5">&#9733;</span>
+                <span class="star" data-rating="4">&#9733;</span>
+                <span class="star" data-rating="3">&#9733;</span>
+                <span class="star" data-rating="2">&#9733;</span>
+                <span class="star" data-rating="1">&#9733;</span>
+            </div>
+            <p class="mt-1 text-center text-lg font-bold">₹180.00-₹250.00</p>
+            <button class="order-button bg-yellow-500 text-white py-2 px-4 rounded" onclick="toggleDetailsPizzaAlt()">Order Now</button>
+        </div>
+        
+        <div class="hidden fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center mt-2 items-center w-full mx-auto" id="overlayPizzaAlt">
+            <div class="bg-gradient-to-r from-pink-100 to-yellow-100 p-2 rounded-lg shadow-lg w-4/5 mt-1">
+                <div id="pic-writtendiv" class="flex flex-col lg:flex-row p-4 items-center">
+                    <!-- Image Section -->
+                    <div id="picinside" class="flex flex-col lg:w-1/2 w-full items-center">
+                        <img src="https://imgmedia.lbb.in/media/2019/07/5d242ad8e93a896e5542da0d_1562651352251.jpg" 
+                             alt="Pizza Alto Alt" class="rounded-lg w-full lg:w-auto max-w-xs"/>
+        
+                        <div id="quantity" class="flex flex-row mt-3 space-x-4">
+                            <button type="button" onclick="updateQuantityPizzaAlt(-1)" class="bg-gray-200 p-2 w-8 text-lg rounded-full">-</button>
+                            <p id="quantityPizzaAlt" class="text-lg">1</p>
+                            <button type="button" onclick="updateQuantityPizzaAlt(1)" class="bg-gray-200 p-2 w-8 text-lg rounded-full">+</button>
+                        </div>
+                    </div>
+        
+                    <!-- Details Section -->
+                    <div id="writteninside" class="flex flex-col p-4 lg:w-1/2 w-full rounded-lg ">
+                        <div class="flex items-center justify-between">
+                            <h2 class="text-xl font-bold text-gray-800">🍕 Pizza Alto Alt</h2>
+                            <button class="bg-yellow-500 text-white px-3 py-1 rounded-full" onclick="closeOverlayPizzaAlt()">X</button>
+                        </div>
+        
+                        <p class="text-gray-600 text-sm lg:text-lg mt-2">
+                            "🔥 Experience an exotic blend of flavors with the Pizza Alto Alt – crispy, cheesy, and loaded with unique toppings! 🍕✨"
+                        </p>               
+        
+                        <!-- Pizza Type Selection -->
+                        <form class="mt-3 flex flex-row gap-2">
+                            <p class="text-gray-700 font-bold">Choose Type:</p>
+                            <label class="flex items-center space-x-2">
+                                <input type="radio" name="pizzaType" value="180" onclick="calculateTotalPizzaAlt()" checked>
+                                <span class="text-pink-900">Classic Veggie</span>
+                            </label>
+                            <label class="flex items-center space-x-2">
+                                <input type="radio" name="pizzaType" value="220" onclick="calculateTotalPizzaAlt()">
+                                <span class="text-pink-900">Spicy Pepperoni</span>
+                            </label>
+                            <label class="flex items-center space-x-2">
+                                <input type="radio" name="pizzaType" value="250" onclick="calculateTotalPizzaAlt()">
+                                <span class="text-pink-900">Ultimate Cheese Blast</span>
+                            </label>
+                        </form>
+        
+                        <!-- Extra Items -->
+                        <form class="mt-2 flex flex-row gap-2">
+                            <p class="text-gray-700 font-bold">Extra Toppings:</p>
+                            <label class="flex items-center space-x-2">
+                                <input type="checkbox" name="pizzaExtra" value="50" onclick="calculateTotalPizzaAlt()">
+                                <span class="text-green-900">Extra Cheese</span>
+                            </label>
+                            <label class="flex items-center space-x-2">
+                                <input type="checkbox" name="pizzaExtra" value="40" onclick="calculateTotalPizzaAlt()">
+                                <span class="text-green-900">Olives</span>
+                            </label>
+                            <label class="flex items-center space-x-2">
+                                <input type="checkbox" name="pizzaExtra" value="30" onclick="calculateTotalPizzaAlt()">
+                                <span class="text-green-900">Spicy Jalapeños</span>
+                            </label>
+                        </form>
+        
+                        <p class="text-gray-700 mt-2">Special Instructions?</p>
+                        <input type="text" class="border border-gray-300 p-2 w-full" placeholder="Add Instructions..">
+        
+                        <!-- Total Price -->
+                        <div class="flex justify-between items-center mt-2">
+                            <p class="text-xl font-semibold">Total Price:</p>
+                            <p id="totalPricePizzaAlt" class="text-xl font-semibold">₹180.00</p>
+                        </div>
+        
+                        <!-- Buttons -->
+                        <div class="flex flex-row gap-3 mt-2 mb-2">
+                            <button class="bg-yellow-500 p-2 text-white rounded-lg" onclick="addToCart('Pizza Alto Alt', 180)">Add to Cart</button>
+                            <button class="bg-green-300 p-2 rounded-lg"><a href="next.html">Buy More</a></button>
+                            <button onclick="proceedToCheckoutpizza()" class="bg-green-300 p-2 rounded-lg">Proceed to Pay</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+        <div class="food-item mx-2">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmoMj74C2e5v3q-zRoGhqf-W2gCiKsktQlKA&s" alt="Ice-Cream" class="object-cover rounded-lg"/>
+            <p class="mt-2 text-center text-lg font-bold">🍦 Ice-Cream</p>
+            <div class="star-rating">
+                <span class="star" data-rating="5">&#9733;</span>
+                <span class="star" data-rating="4">&#9733;</span>
+                <span class="star" data-rating="3">&#9733;</span>
+                <span class="star" data-rating="2">&#9733;</span>
+                <span class="star" data-rating="1">&#9733;</span>
+            </div>
+            <p class="mt-1 text-center text-lg font-bold">₹50.0 - ₹100.0</p>
+            <button class="order-button bg-yellow-500 text-white py-2 px-4 rounded" onclick="toggleDetailsIcecream()">Order Now</button>
+        </div>
+        
+        <div class="hidden fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center mt-2 items-center w-full mx-auto" id="overlayIcecream">
+            <div class="bg-gradient-to-r from-pink-100 to-yellow-100 p-2 rounded-lg shadow-lg w-4/5 mt-1">
+                <div class="flex flex-col lg:flex-row p-4 items-center">
+                    <div class="flex flex-col lg:w-1/2 w-full items-center">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmoMj74C2e5v3q-zRoGhqf-W2gCiKsktQlKA&s" alt="Ice-Cream" class="rounded-lg w-full lg:w-auto max-w-xs"/>
+                        <div class="flex flex-row mt-2 space-x-4">
+                            <button type="button" onclick="updateQuantityIceCream(-1)" class="bg-gray-200 p-2 w-8 text-lg rounded-full">-</button>
+                            <p id="quantityIceCream" class="text-lg">1</p>
+                            <button type="button" onclick="updateQuantityIceCream(1)" class="bg-gray-200 p-2 w-8 text-lg rounded-full">+</button>
+                        </div>
+                    </div>
+                    <div class="flex flex-col p-4 lg:w-1/2 w-full rounded-lg ">
+                        <div class="flex items-center justify-between">
+                            <h2 class="text-xl font-bold text-gray-800">🍦 Ice-Cream Delight</h2>
+                            <button class="bg-yellow-500 text-white px-3 py-1 rounded-full" onclick="closeOverlayIceCream()">X</button>
+                        </div>
+                        <p class="text-sm lg:text-lg mt-2">"❄️ Cool down with our **delicious Ice-Cream**! Made with creamy, rich flavors and a hint of magic 🍨 "</p>
+                        <form class="mt-3 flex flex-row gap-2" onchange="calculateTotalIceCream()">
+                            <p class="text-gray-700 font-bold">Type:</p>
+                            <label class="flex items-center space-x-2">
+                                <input type="radio" name="iceCreamFlavor" value="Vanilla" checked>
+                                <span class="text-pink-900">Vanilla Bliss</span>
+                            </label>
+                            <label class="flex items-center space-x-2">
+                                <input type="radio" name="iceCreamFlavor" value="Chocolate">
+                                <span class="text-pink-900">Chocolate Fudge</span>
+                            </label>
+                            <label class="flex items-center space-x-2">
+                                <input type="radio" name="iceCreamFlavor" value="Strawberry">
+                                <span class="text-pink-900">Strawberry Swirl</span>
+                            </label>
+                        </form>
+                        <form class="mt-2 flex flex-row gap-2" onchange="calculateTotalIceCream()">
+                            <p class="text-gray-700 font-bold">Extra Items?</p>
+                            <label class="flex items-center space-x-2">
+                                <input type="checkbox" name="toppings" value="Nuts">
+                                <span class="text-green-900">Crunchy Nuts</span>
+                            </label>
+                            <label class="flex items-center space-x-2">
+                                <input type="checkbox" name="toppings" value="ChocoChips">
+                                <span class="text-green-900">Choco Chips</span>
+                            </label>
+                            <label class="flex items-center space-x-2">
+                                <input type="checkbox" name="toppings" value="Caramel">
+                                <span class="text-green-900">Caramel Drizzle</span>
+                            </label>
+                        </form>
+                        <p class="text-gray-700 mt-2">Special Instructions?</p>
+                        <input type="text" class="border border-gray-300 p-2 w-full" placeholder="Add Instructions..">
+                        <div class="flex justify-between items-center mt-2">
+                            <p class="text-xl font-semibold">Total Price:</p>
+                            <p id="totalPriceIceCream" class="text-xl font-semibold">₹135.00</p>
+                        </div>
+                        <div class="flex flex-row gap-3 mt-2 mb-2">
+                            <button class="bg-yellow-500 p-2 text-white rounded-lg" onclick="addToCart('Ice-Cream', 135)">Add to Cart</button>
+                            <button class="bg-green-300 p-2 rounded-lg"><a href="next.html">Buy More</a></button>
+                            <button onclick="proceedToCheckouticecream()" class="bg-green-300 p-2 rounded-lg">Proceed to Pay</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+       
+        
+        
+    
+        <footer class="flex justify-center items-center mt-4 bg-red-500 text-white w-full p-4">
+            <div id="last" class="text-center">
+                <h2 class="text-xl font-semibold">🍔 Savor Every Bite, Enjoy Every Moment! 🍕</h2>
+                <p class="mt-2 text-sm opacity-80">Bringing deliciousness to your doorstep, one order at a time.</p>
+        
+                <p class="mt-2">The key to more success is to have a lot of pillows. Always remember it's the jungle there's a lot of 'they' in there. After you overcome 'they' you will make it to paradise.</p>
+                <div class="flex justify-center mt-4 space-x-4">
+                    <a href="#" class="hover:opacity-75 transition">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook" class="w-10 h-10 rounded-full">
+                    </a>
+                    <a href="#" class="hover:opacity-75 transition">
+                        <img src="https://store-images.s-microsoft.com/image/apps.45406.9007199266244427.4d45042b-d7a5-4a83-be66-97779553b24d.2a88a418-b96d-44a6-ad4f-5e0ee6289b2c" alt="Twitter" class="w-10 h-10 rounded-full">
+                    </a>
+                    <a href="#" class="hover:opacity-75 transition">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" class="w-10 h-10 rounded-full">
+                    </a>
+                </div>
+                
+            </div>
+            
+    </footer>
+    <script src="script.js"></script>
+
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</html>

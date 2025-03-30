@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>South Indian - Food App</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+<body class="bg-gray-100 font-sans">
+  <!-- Header / Navbar -->
+  <header class=" bg-yellow-500 p-4  top-0 z-10">
+    <div class="  mx-auto flex justify-between items-center">
+      <div class="flex items-center  w-20 h-10 ">
+
+        <a href="next.html" class="flex items-center justify-center">
+            <img src="Screenshot 2025-02-20 105303.png" class=" flex w-20">
+        </a>
+           
+        <!-- Location -->
+    </div>      <nav>
+        <a href="next.html" class="text-white hover:underline text-lg font-semibold">Categories</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container mx-auto mt-10 p-4">
+    <h1 class="text-4xl font-bold text-center mb-6 text-green-700">South Indian Delights</h1>
+    
+    <!-- Food Items Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <!-- Dosa -->
+      <div class="bg-white p-4 rounded-xl shadow-lg transform hover:scale-105 transition duration-300">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ911oUizDnzfAfLBf_yLDSIzSnUTFzFj23mp1EHetDVP-q0RtS1h2RepnaRoAzaOlX2C4&usqp=CAU" 
+             alt="Dosa" 
+             class="w-full h-52 object-cover rounded-xl">
+        <h2 class="mt-4 text-xl font-bold text-gray-800">Dosa</h2>
+        <p class="text-gray-600 text-lg " id="totaldosa">₹80.00</p>
+        <button class="mt-4 bg-red-500 text-white py-2 mb-2 px-5 rounded-lg hover:bg-orange-400 transition-all" 
+        onclick="proceedTopaydosa()">Order Now</button>    
+        <button class="bg-yellow-500 text-white py-2 px-4 rounded-lg hover:bg-yellow-400 transition-all" 
+        onclick="addToCart('Dosa',80 )">Add to Cart</button>
+       </div>
+
+      <!-- Idli -->
+      <div class="bg-white p-4 rounded-xl shadow-lg transform hover:scale-105 transition duration-300">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUkKcWYWkNKU8JLLJicty2rNz-6MlJxieENg&s" 
+             alt="Idli" 
+             class="w-full h-52 object-cover rounded-xl">
+        <h2 class="mt-4 text-xl font-bold text-gray-800">Idli</h2>
+        <p class="text-gray-600 text-lg" id="totalidli">₹50.00</p>
+        <button class="mt-4 bg-red-500 text-white mb-2 py-2 px-5 rounded-lg hover:bg-orange-400 transition-all" 
+        onclick="proceedToPayidli()">Order Now</button>  
+        <button class="bg-yellow-500 text-white py-2 px-4 rounded-lg hover:bg-yellow-400 transition-all" 
+        onclick="addToCart('Idli',50 )">Add to Cart</button>
+         </div>
+
+      <!-- Vada -->
+      <div class="bg-white p-4 rounded-xl shadow-lg transform hover:scale-105 transition duration-300">
+        <img src="https://bonmasala.com/wp-content/uploads/2022/12/medu-vada-recipe.webp" 
+             alt="Vada" 
+             class="w-full h-52 object-cover rounded-xl">
+        <h2 class="mt-4 text-xl font-bold text-gray-800">Vada</h2>
+        <p class="text-gray-600 text-lg" id="totalvada">₹60.00</p>
+        <button class="mt-4 bg-red-500 text-white py-2 px-5 mb-2 rounded-lg hover:bg-orange-400 transition-all" 
+        onclick="proceedToPayvada()">Order Now</button>     
+        <button class="bg-yellow-500 text-white py-2 px-4 rounded-lg hover:bg-yellow-400 transition-all" 
+        onclick="addToCart('Vada',60 )">Add to Cart</button>
+          </div>
+
+      <!-- Sambar -->
+      <div class="bg-white p-4 rounded-xl shadow-lg transform hover:scale-105 transition duration-300">
+        <img src="https://www.indianhealthyrecipes.com/wp-content/uploads/2021/05/sambar.jpg" 
+             alt="Sambar" 
+             class="w-full h-52 object-cover rounded-xl">
+        <h2 class="mt-4 text-xl font-bold text-gray-800">Sambar</h2>
+        <p class="text-gray-600 text-lg" id="totalsambar">₹70.00</p>
+        <button class="mt-4 bg-red-500 text-white py-2 mb-2 px-5 rounded-lg hover:bg-orange-400 transition-all" 
+        onclick="proceedToPaysambar()">Order Now</button>     
+        <button class="bg-yellow-500 text-white py-2 px-4 rounded-lg hover:bg-yellow-400 transition-all" 
+        onclick="addToCart('Sambar',70 )">Add to Cart</button>
+       </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="flex justify-center items-center mt-4 bg-red-500 text-white w-full p-4">
+    <div id="last" class="text-center">
+        <h2 class="text-xl font-semibold">🍔 Savor Every Bite, Enjoy Every Moment! 🍕</h2>
+        <p class="mt-2 text-sm opacity-80">Bringing deliciousness to your doorstep, one order at a time.</p>
+
+        <p class="mt-2">The key to more success is to have a lot of pillows. Always remember it's the jungle there's a lot of 'they' in there. After you overcome 'they' you will make it to paradise.</p>
+        <div class="flex justify-center mt-4 space-x-4">
+            <a href="#" class="hover:opacity-75 transition">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook" class="w-10 h-10 rounded-full">
+            </a>
+            <a href="#" class="hover:opacity-75 transition">
+                <img src="https://store-images.s-microsoft.com/image/apps.45406.9007199266244427.4d45042b-d7a5-4a83-be66-97779553b24d.2a88a418-b96d-44a6-ad4f-5e0ee6289b2c" alt="Twitter" class="w-10 h-10 rounded-full">
+            </a>
+            <a href="#" class="hover:opacity-75 transition">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" class="w-10 h-10 rounded-full">
+            </a>
+        </div>
+        
+    </div>
+    
+</footer>
+  <script src="script.js"></script>
+</body>
+</html>

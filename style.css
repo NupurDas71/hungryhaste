@@ -1,0 +1,843 @@
+body, header {
+    width: 100%;
+    margin: 0;
+   
+        font-family: 'Poppins',Arial, Helvetica, sans-serif ,cursive;
+    
+    }
+
+header {
+    background-color: rgb(238, 238, 239);
+}
+
+.nav {
+    background-color: rgb(215, 160, 20);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: black;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    position: fixed;
+    width: 100%;
+    gap:40px;
+    z-index: 2000; /* Ensures it stays on top */
+    top: 0;
+
+
+}
+
+.nav a {
+    color: black;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: medium;
+}
+
+.nav a:hover {
+    color: red;
+}
+
+#overlay,#overlayBurger,#overlayPizzaAlt , #overlayIcecream {
+    z-index: 2000;
+}
+
+
+.cart-display {
+    display: none; /* Initially hide the cart */
+}
+#secondnav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding-top: 20px; /* Optional: Adjust the spacing above */
+    padding-bottom: 20px; /* Optional: Adjust the spacing below */
+    background: transparent;
+}
+
+#div1 {
+    width: 80%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.image-container img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto;
+}
+
+.image-container {
+    flex: 0 0 100px; /* Width of each container */
+    height: 100px;   /* Height of each container */
+    margin: 5px;     /* Optional margin */
+    text-align: center;
+}
+
+#items {
+    width: 100%;
+    gap: 30px;
+    padding-top: 30px;
+    padding-bottom: 50px;
+    text-align: center;
+    overflow-x: auto;
+}
+
+
+.dropdown-menu {
+    position: absolute;
+    top: auto;
+    bottom: 100%;
+    height:50px;
+    z-index: 9999; /* Ensure it appears above other elements */
+}
+#full{
+    background-color: darkolivegreen;
+}
+/* Responsive styles */
+@media (max-width: 768px) {
+    /* Styles for tablets and small desktops */
+    .nav {
+gap:10px;
+        flex-direction: row;
+        display: flex;
+    }
+
+    .nav-item img {
+        height: 40px;
+    }
+
+    .image-container {
+        width: 80px;
+        margin: 5px;
+    }
+
+    .food-item {
+        max-width: 150px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Styles for mobile devices */
+    nav.nav {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+        overflow-x: auto; /* allows horizontal scrolling */
+        width: 100%;
+        white-space: nowrap; /* prevents items from wrapping */
+    }
+    .nav-item .logo{
+        width:auto;
+        height:50px;
+    }
+
+  
+    .nav-item {
+        margin: 5px 0;
+        flex-shrink: 0; /* prevents nav items from shrinking */
+    }
+
+    .nav-item img {
+        height: 30px;
+        width: auto; /* ensures logo maintains its aspect ratio */
+    }
+    .image-container {
+        width: 60px;
+        margin: 5px;
+    }
+.bold-text{
+    font-size: 24px;
+    width:100%;
+}
+    .food-item {
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+ }
+
+    .order-button-content {
+        display: block;
+    }
+    #fooddiv{
+        display: flex;
+        gap:20px;
+padding-top: 10px;
+padding-bottom: 10px;
+margin-bottom: 20px;
+    }
+   #full{
+    width:100%;
+    height: 200px;
+    padding-left: 10px;
+    padding-right: 10px;
+    align-items: center;
+    justify-content: center;
+   }
+   #full img{
+    width:90%;
+height:90%;
+   }
+}
+
+
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+    /* Fullscreen overlay */
+    .overlay {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        padding: 20px;
+        top: 50px;
+        left: 20px;
+        background: rgba(0, 0, 0, 0.5);
+    }
+
+    /* Content Box: Smaller, No Extra Gaps */
+    .overlay-content {
+        width: 100%; /* Adjust width */
+        max-width: 400px; /* Limit width */
+        background: white;
+        padding: 30px;
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+        height: 95vh; /* Ensures full screen usage */
+        overflow-y: auto; /* Enable scrolling only if needed */
+        box-sizing: border-box;
+        position: relative;
+    }
+
+    /* Title & Close Button: Always Visible */
+    .title-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        padding: 5px;
+    }
+
+    .bold-text {
+        font-size: 16px;
+        text-align: center;
+        flex-grow: 1;
+    }
+
+    .close-btn {
+        font-size: 18px;
+        background: red;
+        color: white;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Image & Quantity */
+    #picinside img {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+
+    #quantity {
+        margin-top: 5px;
+        gap: 5px;
+    }
+
+    #quantity button {
+        width: 25px;
+        height: 25px;
+        font-size: 14px;
+    }
+
+    #quantitycofee {
+        font-size: 14px;
+    }
+
+    /* Coffee Type Selection */
+    form {
+        width: 100%;
+        font-size: 12px;
+    }
+
+    label span {
+        font-size: 14px;
+    }
+
+    /* Total Price */
+    .total {
+        font-size: 14px;
+        padding: 5px;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    /* Buttons */
+    .buttons-container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        margin-top: 5px;
+    }
+
+    .buttons {
+        padding: 8px;
+        font-size: 14px;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    /* Place Order Button */
+    .place-order {
+        width: 100%;
+        padding: 10px;
+        background: red;
+        color: white;
+        font-size: 14px;
+        text-align: center;
+        font-weight: bold;
+        border-radius: 5px;
+        margin-top: 5px;
+    }
+}
+
+
+
+#fooddiv{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height:auto;
+    
+}
+
+.food-item img {
+    width: 280px; /* Adjust the width as needed */
+    height: 280px; /* Adjust the height as needed */
+    border-radius: 10px; /* Optional: Add border radius for rounded corners */
+}
+.star-rating {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    font-size: 2rem;
+}
+
+.star {
+    cursor: pointer;
+    color: gray;
+    padding: 0.2rem; /* Add padding to make border visible */
+    margin: 0.1rem; /* Add margin to space stars apart */
+}
+
+.star:hover,
+.star:hover ~ .star,
+.star.selected,
+.star.selected ~ .star {
+    color: gold;
+}
+.food-item:hover .order-button {
+    display: block;
+}
+.order-button {
+    display: none;
+}
+.food-item {
+    position: relative;
+}
+
+#fooddiv {
+    scrollbar-width: thin;
+    scrollbar-color: #888 #e0e0e0;
+   
+}
+
+
+.order-button {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(255, 153, 0);
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: none;
+}
+ .addcart,#placeconteint {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 100%;
+    height: 90%;
+    padding: 30px 30px 30px 30px;
+}
+/* Basic styling for the overlay */
+.overlay {
+    display: none; /* Initially hidden */
+    
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.overlay-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.close-button {
+    cursor: pointer;
+}
+
+.star-rating .star {
+    color: gold;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.star-rating .star:hover {
+    color: orange;
+}
+
+/* Basic styling for the place order section */
+.place {
+    display: none; /* Initially hidden */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 1000px;
+    height: 600px;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.placeconteint {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    height: fit-content;
+}
+
+.buttons:hover {
+    cursor: pointer;
+color: blue;
+}
+#addtocartdiv, #addtoremove {
+    display: none; /* Start with these divs hidden */
+}
+.feedback-message {
+    top:30%; 
+    z-index: 2000;
+}
+
+
+
+
+.overlay.show {
+    display: flex;
+    opacity: 1;
+}
+
+.addcart {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 40%;
+    height: 300px;
+    background: white;
+    border-radius: 8px;
+    z-index: 2000;
+    display: none;
+    margin-bottom: 200px;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+background-color: bisque;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+
+.placed{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    border-radius: 8px;
+    z-index: 1000;
+    margin-bottom: 200px;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    display: none;
+    transform: translate(-50%, -50%) scale(0.8);
+
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+
+.place {
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Center positioning */
+    width: 80%;
+    height: 600px;
+    max-width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Optional: adds a shadow to make it stand out */
+    z-index: 1000;
+    transition: opacity 0.5s ease;
+    background: rgba(0, 0, 0, 0.5);
+
+
+
+}
+.close-button {
+    cursor: pointer;
+}
+@media (max-width: 480px) {
+.overlay {
+display: none; /* Show overlay on mobile screens */
+gap:10px;
+height: auto;
+width: auto;
+top:0;
+left:0;
+align-items: center;
+justify-content: center;
+}
+.overlay-content span ,p  {
+font-size: 0.95rem; /* Further reduce font size on mobile */
+}
+
+.overlay-content {
+width: auto; /* Full width for mobile */
+max-width: 100%; /* Ensure it doesn't overflow the viewport */
+padding: 10px; /* Reduce padding for smaller screens */
+box-shadow: none; /* Remove shadow for a cleaner look on mobile */
+margin: 0; /* Remove margin for full-width overlay */
+height:auto;
+
+}
+
+/* Adjust sizes for mobile */
+#picinside img {
+max-width: 100px; /* Smaller image on mobile */
+height: auto;
+}
+
+#quantity button {
+width: auto; /* Smaller buttons on mobile */
+height: 30px; /* Smaller buttons on mobile */
+}
+
+.star-rating .star {
+font-size: 1.2rem; /* Smaller stars on mobile */
+}
+
+/* Adjust input and button sizes */
+.overlay-content input[type="text"] {
+font-size: 0.875rem; /* Adjust font size for better fit */
+}
+
+.overlay-content button {
+font-size: 0.775rem; /* Adjust font size for buttons */
+}
+.bold-text{
+font-size: small;
+}
+
+.place {
+width: auto; /* Increase width for better mobile visibility */
+padding: 10px; /* Reduce padding for smaller screens */
+margin: 0; /* Remove margin for full-width overlay */
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Optional: adds a shadow to make it stand out */
+    transition: opacity 0.5s ease;
+    height: auto;
+    top:50%;
+    transform: translate(-50%, -50%); /* Center positioning */
+
+}
+
+/* Hide content behind the overlay */
+.hide-when-overlay {
+display: none; /* Hide other content when overlay is displayed */
+}
+
+.top {
+flex-direction: column; /* Stack elements vertically on small screens */
+align-items: center;
+}
+
+.top > div {
+margin-bottom: 10px; /* Space out elements */
+}
+
+#itemTable {
+font-size: 12px; /* Reduce font size for better readability on small screens */
+}
+
+#itemadddiv, #itemadddiv2 {
+flex-direction: column; /* Stack table items vertically */
+align-items: flex-start;
+}
+
+#itemadddiv2 {
+padding: 10px; /* Reduce padding */
+}
+
+#item1 img {
+width: 100%; /* Ensure images fit the container */
+}
+
+
+.text-lg {
+font-size: 0.875rem; /* Adjust text size */
+}
+
+.text-lg-2xl {
+font-size: 0.75rem; /* Adjust text size for radio labels */
+}
+
+.star {
+font-size: 1rem; /* Adjust star size */
+}
+form {
+width: 100%; /* Ensure form is 50% of the screen width */
+flex-direction: row; /* Arrange items in a single row */
+justify-content: space-between; /* Distribute space evenly */
+overflow-x: auto; /* Allow horizontal scrolling if needed */
+}
+
+.flex-wrap {
+flex-wrap: nowrap; /* Prevent wrapping */
+}
+
+
+}
+
+
+
+.show {
+    display: block; /* Show overlay when needed */
+}
+#headline {
+    font-size: 24px; /* Adjust font size for headline */
+    font-weight: bold; /* Make headline bold */
+    margin-bottom: 20px; /* Add space below headline */
+}
+
+#top {
+    height: 50px; /* Adjust height for top section */
+}
+
+
+.item1 img {
+    width: 100%;
+    height: 70px;
+}
+
+.top{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap:30px;
+    margin-bottom: 20px;
+}
+.error {
+    border: 1px solid red;
+}
+.error-message {
+    color: red;
+}
+.container {
+    margin: 20px;
+}
+
+/* Base styles for mobile (default) */
+#details {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 16px;
+}
+
+#bill, #deliverydiv {
+    width: 100%;
+    padding: 16px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Styles for tablets and above */
+@media (min-width: 768px) {
+    #details {
+        flex-direction: row;
+    }
+
+    #bill, #deliverydiv {
+        width: 50%;
+    }
+}
+
+/* Additional styles */
+
+
+.price-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+@media (max-width: 480px) {
+    #details {
+        flex-direction: column;
+        flex-wrap: wrap;
+        gap:20px;
+    }
+
+    #bill, #deliverydiv {
+        width: 100%;
+        gap:10px;
+        padding-top: 20px;
+        margin-bottom: 20px;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+    .container {
+        flex-direction:column;
+flex-wrap: wrap;  }
+   
+    h4 {
+        font-size: 0.5 rem;
+        padding-bottom: 10px;
+    }
+   
+    input {
+        height: 40px;
+        font-size: 1.25rem;
+    }
+}
+    
+.container {
+    position: relative;
+}
+
+.login-modal {
+    display: none; /* Initially hide the modal */
+    position: fixed;
+    top: 15%;
+    left: 85%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    width: 300px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+.container {
+    position: relative; /* Ensures that the fixed modal remains positioned correctly */
+}
+
+.nav-item:hover #logindiv, .nav-item.active #logindiv {
+    display: block;
+}
+
+     /* Hide the default radio button */
+   
+
+    /* Style the custom radio button */
+    .custom-radio span {
+        position: relative;
+        transition: border-color 0.3s, background-color 0.3s;
+    }
+
+    /* Style for the checked state */
+    .custom-radio input[type="radio"]:checked + span {
+        border-color: var(--radio-checked-color, #3b82f6);
+        color: var(--radio-checked-color, #f6573b);
+    }
+  
+   
+        
+            #payNowBtn {
+                display: none; /* Initially hidden */
+                margin-top: 10px;
+            }
+   
+
+            .dropdown-menu {
+                background-color: white;
+                border-radius: 8px;
+                border: 1px solid #ddd;
+            }
+            
+            .container {
+                display: flex;
+                align-items: center;
+            }
+            
+            .first-item img {
+                margin-right: 10px;
+            }
+            
+            
+                    .error {
+                        color: red;
+                        font-size: 14px;
+                        visibility: hidden;
+                    }
+                    .show {
+                        visibility: visible;
+                    }
+                    .hidden {
+                        display: none;
+                    }
+                    .containerfrom {
+                        max-width: 600px;
+                        margin: 20px auto;
+                        padding: 20px;
+                        border: 2px solid #f8e6e6;
+                        border-radius: 5px;
+            
+                        background-color: #f9f9f9;
+                    }
+                    #upiScanner {
+                        display: none;
+                        text-align: center;
+                        margin-top: 10px;
+                    }

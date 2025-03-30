@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ice Cream - Food App</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-blue-100">
+
+ <!-- Navbar -->
+ <header class="bg-yellow-500 p-4 shadow-md">
+  <div class=" mx-auto flex justify-between items-center">
+
+      <a href="next.html" class="flex items-center justify-center">
+          <img src="Screenshot 2025-02-20 105303.png" class=" flex w-20">
+      </a>
+         
+      <!-- Location -->
+      <a href="next.html" class="text-white hover:underline">Categories</a>
+    </nav>
+  </div>
+</header>
+
+  <!-- Main Content -->
+  <main class="container mx-auto mt-6">
+    <h1 class="text-3xl font-bold text-center text-blue-800 mb-6">🍨 Ice Cream Menu</h1>
+
+    <!-- Ice Cream Items Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      
+      <!-- Chocolate Ice Cream -->
+      <div class="bg-white p-4 rounded-xl shadow-lg transform hover:scale-105 transition duration-300">
+        <img src="https://cdn.apartmenttherapy.info/image/upload/f_jpg,q_auto:eco,c_fill,g_auto,w_1500,ar_1:1/k%2Frecipes%2F2023%2F2023-12-chocolate-delight%2Fchocolate-delight-recipe-1" 
+             alt="Chocolate Ice Cream" 
+             class="w-full h-40 object-cover rounded-md">
+        <h2 class="mt-3 text-xl font-semibold">Chocolate Delight</h2>
+        <p class="text-gray-600 text-sm">Rich & creamy chocolate ice cream.</p>
+        <p class="mt-2 text-lg font-semibold text-blue-800" id="totalchocodelight">₹70.00</p>
+        <p class="text-blue-500 text-sm">⭐ 4.8 | 300+ Reviews</p>
+        <button class="mt-4 bg-blue-500 text-white py-2 px-5 rounded-lg hover:bg-blue-400 transition-all mb-2" 
+                onclick="proceedToPaychocodelight()">Order Now</button>
+                <button class="bg-blue-800 text-white py-2 px-4 rounded-lg hover:bg-blue-200 transition-all"  onclick="addToCart('Chocolate Delight',70)">Add to Cart</button>
+             
+      </div>
+
+      <!-- Vanilla Ice Cream -->
+      <div class="bg-white p-4 rounded-xl shadow-lg transform hover:scale-105 transition duration-300">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSn0S9B_WUGqoN01Uj0PHYI2mNlzxYFVAYkuw&s" 
+             alt="Vanilla Ice Cream" 
+             class="w-full h-40 object-cover rounded-md">
+        <h2 class="mt-3 text-xl font-semibold">Classic Vanilla</h2>
+        <p class="text-gray-600 text-sm">Smooth and creamy vanilla delight.</p>
+        <p class="mt-2 text-lg font-semibold text-blue-800" id="totalclassicvenila">₹100.00</p>
+        <p class="text-blue-500 text-sm">⭐ 4.7 | 280+ Reviews</p>
+        <button class="mt-4 bg-blue-500 text-white py-2 px-5 rounded-lg hover:bg-blue-400 transition-all mb-2" 
+                onclick="proceedToPayclassicvenila()">Order Now</button>
+                <button class="bg-blue-800 text-white py-2 px-4 rounded-lg hover:bg-blue-200 transition-all"  onclick="addToCart('Classic Vanilla',100)">Add to Cart</button>
+             
+      </div>
+
+      <!-- Strawberry Ice Cream -->
+      <div class="bg-white p-4 rounded-xl shadow-lg transform hover:scale-105 transition duration-300">
+        <img src="https://s3.amazonaws.com/grocery-project/recipe_images/ultimate-strawberry-bliss-ice-cream-2706223-3.jpeg" 
+             alt="Strawberry Ice Cream" 
+             class="w-full h-40 object-cover rounded-md">
+        <h2 class="mt-3 text-xl font-semibold">Strawberry Bliss</h2>
+        <p class="text-gray-600 text-sm">Fresh strawberry flavor with real chunks.</p>
+        <p class="mt-2 text-lg font-semibold text-blue-800" id="totalsbliss">₹110.00</p>
+        <p class="text-blue-500 text-sm">⭐ 4.9 | 350+ Reviews</p>
+        <button class="mt-4 bg-blue-500 text-white py-2 px-5 rounded-lg hover:bg-blue-400 transition-all mb-2" 
+                onclick="proceedToPaysbliss()">Order Now</button>
+                <button class="bg-blue-800 text-white py-2 px-4 rounded-lg hover:bg-blue-200 transition-all"  onclick="addToCart('Strawberry Bliss',110)">Add to Cart</button>
+            
+      </div>
+
+      <!-- Butterscotch Ice Cream -->
+      <div class="bg-white p-4 rounded-xl shadow-lg transform hover:scale-105 transition duration-300">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyRMT6XylueWBlqZlIFW99Oll-xefKlNs2nu9FVJOkota7eW7KEuxyN2laSaAV_UmFV5Q&usqp=CAU" 
+             alt="Butterscotch Ice Cream" 
+             class="w-full h-40 object-cover rounded-md">
+        <h2 class="mt-3 text-xl font-semibold">Crunchy Butterscotch</h2>
+        <p class="text-gray-600 text-sm">Creamy butterscotch with caramelized nuts.</p>
+        <p class="mt-2 text-lg font-semibold text-blue-800" id="totalcrunchybuttrscotch">₹60.00</p>
+        <p class="text-blue-500 text-sm">⭐ 4.8 | 320+ Reviews</p>
+        <button class="mt-4 bg-blue-500 text-white py-2 px-5 rounded-lg hover:bg-blue-400 transition-all mb-2" 
+                onclick="proceedToPaycrunchybuttrscotch()">Order Now</button>
+                <button class="bg-blue-800 text-white py-2 px-4 rounded-lg hover:bg-blue-200 transition-all"  onclick="addToCart('Cruncy Butterscotch',60)">Add to Cart</button>
+            
+      </div>
+
+      <!-- Mango Ice Cream -->
+      <div class="bg-white p-4 rounded-xl shadow-lg transform hover:scale-105 transition duration-300">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlPPJzyTFtaRw36TBxFurLG7AB4qSwdFJt2A&s" 
+             alt="Mango Ice Cream" 
+             class="w-full h-40 object-cover rounded-md">
+        <h2 class="mt-3 text-xl font-semibold">Mango Magic</h2>
+        <p class="text-gray-600 text-sm">Refreshing mango ice cream made with real mangoes.</p>
+        <p class="mt-2 text-lg font-semibold text-blue-800" id="totalmangomagic">₹60.00</p>
+        <p class="text-blue-500 text-sm">⭐ 4.9 | 400+ Reviews</p>
+        <button class="mt-4 bg-blue-500 text-white py-2 px-5 rounded-lg hover:bg-blue-400 transition-all mb-2" 
+                onclick="proceedToPaymangomagic()">Order Now</button>
+                <button class="bg-blue-800 text-white py-2 px-4 rounded-lg hover:bg-blue-200 transition-all"  onclick="addToCart('Mango Magic',60)">Add to Cart</button>
+
+      </div>
+
+      <!-- Blackcurrant Ice Cream -->
+      <div class="bg-white p-4 rounded-xl shadow-lg transform hover:scale-105 transition duration-300">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8AdtS4hWUqtBZ-uy9f69zygXLrpb9g9kA2zo-9UeBug3N794naXUENuY_LB0Vh0H3Lec&usqp=CAU" 
+             alt="Blackcurrant Ice Cream" 
+             class="w-full h-40 object-cover rounded-md">
+        <h2 class="mt-3 text-xl font-semibold">Blackcurrant Burst</h2>
+        <p class="text-gray-600 text-sm">Rich blackcurrant flavor with real berries.</p>
+        <p class="mt-2 text-lg font-semibold text-blue-800" id="totalblackcburst">₹130.00</p>
+        <p class="text-blue-500 text-sm">⭐ 4.8 | 310+ Reviews</p>
+        <button class="mt-4 bg-blue-500 text-white py-2 px-5 rounded-lg hover:bg-blue-400 transition-all mb-2" 
+                onclick="proceedToPayblackcburst()">Order Now</button>
+                <button class="bg-blue-800 text-white py-2 px-4 rounded-lg hover:bg-blue-200 transition-all"  onclick="addToCart('Blackcurrant Burst',130)">Add to Cart</button>
+
+      </div>
+
+    </div>
+  </main>
+  <footer class="flex justify-center items-center mt-4 bg-red-500 text-white w-full p-4">
+    <div id="last" class="text-center">
+        <h2 class="text-xl font-semibold">🍔 Savor Every Bite, Enjoy Every Moment! 🍕</h2>
+        <p class="mt-2 text-sm opacity-80">Bringing deliciousness to your doorstep, one order at a time.</p>
+
+        <p class="mt-2">The key to more success is to have a lot of pillows. Always remember it's the jungle there's a lot of 'they' in there. After you overcome 'they' you will make it to paradise.</p>
+        <div class="flex justify-center mt-4 space-x-4">
+            <a href="#" class="hover:opacity-75 transition">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook" class="w-10 h-10 rounded-full">
+            </a>
+            <a href="#" class="hover:opacity-75 transition">
+                <img src="https://store-images.s-microsoft.com/image/apps.45406.9007199266244427.4d45042b-d7a5-4a83-be66-97779553b24d.2a88a418-b96d-44a6-ad4f-5e0ee6289b2c" alt="Twitter" class="w-10 h-10 rounded-full">
+            </a>
+            <a href="#" class="hover:opacity-75 transition">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" class="w-10 h-10 rounded-full">
+            </a>
+        </div>
+        
+    </div>
+    
+</footer>
+<script src="script.js"></script>
+</body>
+</html>

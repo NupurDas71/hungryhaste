@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Burger - Food App</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+<body class="bg-gray-100">
+
+  <!-- Navbar -->
+<!-- Navbar -->
+<header class="bg-yellow-500 p-4 shadow-md">
+  <div class=" mx-auto flex justify-between items-center">
+
+      <a href="next.html" class="flex items-center justify-center">
+          <img src="Screenshot 2025-02-20 105303.png" class=" flex w-20">
+      </a>
+         
+      <!-- Location -->
+      <a href="next.html" class="text-white hover:underline">Categories</a>
+    </nav>
+  </div>
+</header>
+
+  <!-- Main Content -->
+  <main class="container mx-auto mt-6">
+    <h1 class="text-3xl font-bold text-center text-orange-600 mb-6">🔥 Delicious Burgers</h1>
+
+    <!-- Burger Items Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      
+      <!-- Double Classic Burger -->
+      <div class="bg-white p-4 rounded-xl shadow-lg transform hover:scale-105 transition duration-300">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQLqq1rd9cUlDE6G5wORN5peYx5ebMPMQlIg&s" 
+             alt="Double Classic Burger" 
+             class="w-full h-40 object-cover rounded-md">
+        <h2 class="mt-3 text-xl font-semibold">Double Classic Burger</h2>
+        <p class="text-gray-600 text-sm">Juicy double beef patty with fresh lettuce, tomatoes, and cheddar cheese.</p>
+        <p class="mt-2 text-lg font-semibold text-red-700"id="totaldoubleclassicburger()">₹150.00</p>
+        <p class="text-yellow-500 text-sm">⭐ 4.6 | 250+ Reviews</p>
+        <button class="mt-4 bg-red-500 text-white py-2 px-5 rounded-lg hover:bg-orange-400 transition-all mb-2" 
+                onclick="proceedToPaydoubleclassicburger()">Order Now</button>
+                <button class="bg-orange-400 text-white py-2 px-4 rounded-lg hover:bg-yellow-400 transition-all" 
+                onclick="addToCart('Double Classic Burger',150)">Add to Cart</button>
+              
+      </div>
+
+      <!-- Cheesy Veg Burger -->
+      <div class="bg-white p-4 rounded-xl shadow-lg transform hover:scale-105 transition duration-300">
+        <img src="https://www.kitchensanctuary.com/wp-content/uploads/2019/05/Cheesy-Veggie-Burger-Square-1200.jpg" 
+             alt="Cheesy Veg Burger" 
+             class="w-full h-40 object-cover rounded-md">
+        <h2 class="mt-3 text-xl font-semibold">Cheesy Veg Burger</h2>
+        <p class="text-gray-600 text-sm">Crispy veggie patty loaded with melted cheese and fresh veggies.</p>
+        <p class="mt-2 text-lg font-semibold text-red-700" id="totalvegburger">₹120.00</p>
+        <p class="text-yellow-500 text-sm">⭐ 4.5 | 220+ Reviews</p>
+        <button class="mt-4 bg-red-500 text-white py-2 px-5 rounded-lg hover:bg-orange-400 transition-all mb-2" 
+                onclick="proceedToPayvegburger()">Order Now</button>
+                <button class="bg-orange-400 text-white py-2 px-4 rounded-lg hover:bg-yellow-400 transition-all" 
+                onclick="addToCart('Cheese Vegy Burger',120)">Add to Cart</button>
+             
+      </div>
+
+      <!-- BBQ Chicken Burger -->
+      <div class="bg-white p-4 rounded-xl shadow-lg transform hover:scale-105 transition duration-300">
+        <img src="https://img.hellofresh.com/f_auto,fl_lossy,q_auto,w_1200/hellofresh_s3/image/easy-bbq-chicken-burger-onion-chutney-b9509a55.jpg" 
+             alt="BBQ Chicken Burger" 
+             class="w-full h-40 object-cover rounded-md">
+        <h2 class="mt-3 text-xl font-semibold">BBQ Chicken Burger</h2>
+        <p class="text-gray-600 text-sm">Grilled chicken patty with BBQ sauce, lettuce, and crispy onions.</p>
+        <p class="mt-2 text-lg font-semibold text-red-700" id="totalbbq">₹180.00</p>
+        <p class="text-yellow-500 text-sm">⭐ 4.7 | 300+ Reviews</p>
+        <button class="mt-4 bg-red-500 text-white py-2 px-5 rounded-lg hover:bg-orange-400 transition-all mb-2" 
+                onclick="proceedToPaybbq()">Order Now</button>
+                <button class="bg-orange-400 text-white py-2 px-4 rounded-lg hover:bg-yellow-400 transition-all" 
+                onclick="addToCart('BBQ Chicken Burger',180)">Add to Cart</button>
+              
+      </div>
+
+      <!-- Spicy Paneer Burger -->
+      <div class="bg-white p-4 rounded-xl shadow-lg transform hover:scale-105 transition duration-300">
+        <img src="https://mcdonaldsblog.in/wp-content/uploads/2016/06/mcspicy-paneer-1-1.jpg" 
+             alt="Spicy Paneer Burger" 
+             class="w-full h-40 object-cover rounded-md">
+        <h2 class="mt-3 text-xl font-semibold">Spicy Paneer Burger</h2>
+        <p class="text-gray-600 text-sm">Crispy paneer patty with spicy mayo and pickles.</p>
+        <p class="mt-2 text-lg font-semibold text-red-700" id="totalspicypannerbr">₹140.00</p>
+        <p class="text-yellow-500 text-sm">⭐ 4.4 | 210+ Reviews</p>
+        <button class="mt-4 bg-red-500 text-white py-2 px-5 rounded-lg hover:bg-orange-400 transition-all mb-2" 
+                onclick="proceedToPayspicypannerbr()">Order Now</button>
+                <button class="bg-orange-400 text-white py-2 px-4 rounded-lg hover:bg-yellow-400 transition-all" 
+                onclick="addToCart('Spicy Panner Burger',140)">Add to Cart</button>
+              
+      </div>
+
+      <!-- Classic Cheese Burger -->
+      <div class="bg-white p-4 rounded-xl shadow-lg transform hover:scale-105 transition duration-300">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReDAewVXB6D18ZoJP7GgU6QgIYVGQHCBYQzg&s" 
+             alt="Classic Cheese Burger" 
+             class="w-full h-40 object-cover rounded-md">
+        <h2 class="mt-3 text-xl font-semibold">Classic Cheese Burger</h2>
+        <p class="text-gray-600 text-sm">Beef patty with cheddar cheese, lettuce, tomato, and mustard.</p>
+        <p class="mt-2 text-lg font-semibold text-red-700" id="totalccbg">₹160.00</p>
+        <p class="text-yellow-500 text-sm">⭐ 4.8 | 350+ Reviews</p>
+        <button class="mt-4 bg-red-500 text-white py-2 px-5 rounded-lg hover:bg-orange-400 transition-all mb-2" 
+                onclick="proceedToPayccbg()">Order Now</button>
+                <button class="bg-orange-400 text-white py-2 px-4 rounded-lg hover:bg-yellow-400 transition-all" 
+                onclick="addToCart('Classic Cheese Burger',160)">Add to Cart</button>
+            
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="flex justify-center items-center mt-4 bg-red-500 text-white w-full p-4">
+    <div id="last" class="text-center">
+        <h2 class="text-xl font-semibold">🍔 Savor Every Bite, Enjoy Every Moment! 🍕</h2>
+        <p class="mt-2 text-sm opacity-80">Bringing deliciousness to your doorstep, one order at a time.</p>
+
+        <p class="mt-2">The key to more success is to have a lot of pillows. Always remember it's the jungle there's a lot of 'they' in there. After you overcome 'they' you will make it to paradise.</p>
+        <div class="flex justify-center mt-4 space-x-4">
+            <a href="#" class="hover:opacity-75 transition">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook" class="w-10 h-10 rounded-full">
+            </a>
+            <a href="#" class="hover:opacity-75 transition">
+                <img src="https://store-images.s-microsoft.com/image/apps.45406.9007199266244427.4d45042b-d7a5-4a83-be66-97779553b24d.2a88a418-b96d-44a6-ad4f-5e0ee6289b2c" alt="Twitter" class="w-10 h-10 rounded-full">
+            </a>
+            <a href="#" class="hover:opacity-75 transition">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" class="w-10 h-10 rounded-full">
+            </a>
+        </div>
+        
+    </div>
+    
+</footer>
+<script src="script.js"></script>
+</body>
+</html>

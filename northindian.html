@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>North Indian - Food App</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+ 
+</head>
+<body class="bg-gray-100">
+
+<!-- Navbar -->
+<header class="bg-yellow-500 p-4 shadow-md">
+  <div class=" mx-auto flex justify-between items-center">
+
+      <a href="next.html" class="flex items-center justify-center">
+          <img src="Screenshot 2025-02-20 105303.png" class=" flex w-20">
+      </a>
+         
+      <!-- Location -->
+      <a href="next.html" class="text-white hover:underline">Categories</a>
+    </nav>
+  </div>
+</header>
+
+  <!-- Main Content -->
+  <main class="container mx-auto mt-6">
+    <h1 class="text-3xl font-bold text-center text-yellow-800 mb-6">🍛 North Indian Menu</h1>
+
+    <!-- North Indian Food Items Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      
+      <!-- Butter Chicken -->
+      <div class="bg-white p-4 rounded-xl shadow-lg transform hover:scale-105 transition duration-300">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsdHbLpoZ41iDhrAmMy7KT0OX3sgHek0FWwg&s" 
+             alt="Butter Chicken" 
+             class="w-full h-40 object-cover rounded-md">
+        <h2 class="mt-3 text-xl font-semibold">Butter Chicken</h2>
+        <p class="text-gray-600 text-sm">Creamy tomato-based curry with tender chicken.</p>
+        <p class="mt-2 text-lg font-semibold text-yellow-800" id="totalbutterchicken">₹320.00</p>
+        <p class="text-yellow-500 text-sm">⭐ 4.9 | 400+ Reviews</p>
+        <button class="mt-4 bg-yellow-700 text-white py-2 px-5 rounded-lg hover:bg-orange-400 transition-all mb-2" 
+                onclick="proceedToPaybutterchicken()">Order Now</button>
+                <button class="bg-yellow-400 text-white py-2 px-4 rounded-lg hover:bg-yellow-200 transition-all" 
+                onclick="addToCart('Butter Chicken',320)">Add to Cart</button>
+          
+      </div>
+
+      <!-- Paneer Tikka Masala -->
+      <div class="bg-white p-4 rounded-xl shadow-lg transform hover:scale-105 transition duration-300">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpPG2vJ8PHZXEAbxLVvImDUrUXhUF5Ewzn8A&s" 
+             alt="Paneer Tikka Masala" 
+             class="w-full h-40 object-cover rounded-md">
+        <h2 class="mt-3 text-xl font-semibold">Paneer Tikka Masala</h2>
+        <p class="text-gray-600 text-sm">Grilled paneer cooked in a rich tomato gravy.</p>
+        <p class="mt-2 text-lg font-semibold text-yellow-800" id="totalptmasala">₹280.00</p>
+        <p class="text-yellow-500 text-sm">⭐ 4.8 | 350+ Reviews</p>
+        <button class="mt-4 bg-yellow-700 text-white py-2 px-5 rounded-lg hover:bg-orange-400 transition-all mb-2" 
+                onclick="proceedToPayptmasala()">Order Now</button>
+                <button class="bg-yellow-400 text-white py-2 px-4 rounded-lg hover:bg-yellow-200 transition-all" 
+                onclick="addToCart('Panner Tikka Masala',280)">Add to Cart</button>
+             
+      </div>
+
+      <!-- Dal Makhani -->
+      <div class="bg-white p-4 rounded-xl shadow-lg transform hover:scale-105 transition duration-300">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQheP2bGltpFCajyA-f0f_lU82AfUv0yivEZw&s" 
+             alt="Dal Makhani" 
+             class="w-full h-40 object-cover rounded-md">
+        <h2 class="mt-3 text-xl font-semibold">Dal Makhani</h2>
+        <p class="text-gray-600 text-sm">Slow-cooked black lentils in a creamy sauce.</p>
+        <p class="mt-2 text-lg font-semibold text-yellow-800" id="totaldalmakhni">₹250.00</p>
+        <p class="text-yellow-500 text-sm">⭐ 4.7 | 300+ Reviews</p>
+        <button class="mt-4 bg-yellow-700 text-white py-2 px-5 rounded-lg hover:bg-orange-400 transition-all mb-2" 
+                onclick="proceedToPaydalmakhni(250)">Order Now</button>
+                <button class="bg-yellow-400 text-white py-2 px-4 rounded-lg hover:bg-yellow-200 transition-all" 
+                onclick="addToCart('Dal Makhani',250)">Add to Cart</button>
+              
+      </div>
+
+   
+    
+      <!-- Naan & Paratha Combo -->
+      <div class="bg-white p-4 rounded-xl shadow-lg transform hover:scale-105 transition duration-300">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROytyZPzB9glQz2tvoilUTlwN9ip97qYLVPA&s" 
+             alt="Naan & Paratha Combo" 
+             class="w-full h-40 object-cover rounded-md">
+        <h2 class="mt-3 text-xl font-semibold">Naan & Paratha Combo</h2>
+        <p class="text-gray-600 text-sm">Freshly baked naan & stuffed parathas.</p>
+        <p class="mt-2 text-lg font-semibold text-yellow-800" id="totalnanparatha">₹150.00</p>
+        <p class="text-yellow-500 text-sm">⭐ 4.5 | 250+ Reviews</p>
+        <button class="mt-4 bg-yellow-700 text-white py-2 px-5 rounded-lg hover:bg-orange-400 transition-all mb-2" 
+                onclick="proceedToPaynanparatha()">Order Now</button>
+                <button class="bg-yellow-400 text-white py-2 px-4 rounded-lg hover:bg-yellow-200 transition-all " 
+                onclick="addToCart('Naan & Paratha',150)">Add to Cart</button>
+                
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="flex justify-center items-center py-2 bg-red-800 text-white w-full">
+    <div id="last" class="text-center">
+        <img src="Screenshot 2025-02-20 105303.png" class="mx-auto align-center" height="50px" width="100px" alt="Screenshot">
+        <p class="mt-2">The key to more success is to have a lot of pillows. Always remember it's the jungle there's a lot of 'they' in there. After you overcome 'they' you will make it to paradise.</p>
+    </div>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
